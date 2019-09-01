@@ -1,3 +1,4 @@
+using Autofac.Extensions.DependencyInjection;
 using MicroS_Common.Logging;
 using MicroS_Common.Metrics;
 using Microsoft.AspNetCore.Hosting;
@@ -14,13 +15,17 @@ namespace src
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
                         .UseStartup<Startup>()
-                        .UseLogging()
+                        //.UseLogging()
                         .UseAppMetrics()
                         ;
-                });
+                })
+            //
+            ;
     }
 }

@@ -1,9 +1,5 @@
 ﻿using App.Metrics;
 using App.Metrics.Counter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WeErpServicesDiscounts.Metrics
 {
@@ -11,6 +7,7 @@ namespace WeErpServicesDiscounts.Metrics
     {
         private readonly IMetricsRoot _metricsRoot;
         private readonly CounterOptions _findDiscountsQueries = new CounterOptions { Name = "find-discounts" };
+
 
         public MetricsRegistry(IMetricsRoot metricsRoot)
             => _metricsRoot = metricsRoot;
